@@ -1,0 +1,705 @@
+/** COLORS **/
+/** LIBS **/
+/*
+ *  Owl Carousel - Core
+ */
+.owl-carousel {
+  display: none;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+  /* position relative and z-index fix webkit rendering fonts issue */
+  position: relative;
+  z-index: 1;
+}
+
+.owl-carousel .owl-stage {
+  position: relative;
+  -ms-touch-action: pan-Y;
+  touch-action: manipulation;
+  -moz-backface-visibility: hidden;
+  /* fix firefox animation glitch */
+}
+
+.owl-carousel .owl-stage:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.owl-carousel .owl-stage-outer {
+  position: relative;
+  overflow: hidden;
+  /* fix for flashing background */
+  -webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+.owl-carousel .owl-wrapper,
+.owl-carousel .owl-item {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+}
+
+.owl-carousel .owl-item {
+  position: relative;
+  min-height: 1px;
+  float: left;
+  -webkit-backface-visibility: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+.owl-carousel .owl-item img {
+  display: block;
+  width: 100%;
+}
+
+.owl-carousel .owl-nav.disabled,
+.owl-carousel .owl-dots.disabled {
+  display: none;
+}
+
+.owl-carousel .owl-nav .owl-prev,
+.owl-carousel .owl-nav .owl-next,
+.owl-carousel .owl-dot {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel button.owl-dot {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0 !important;
+  font: inherit;
+}
+
+.owl-carousel.owl-loaded {
+  display: block;
+}
+
+.owl-carousel.owl-loading {
+  opacity: 0;
+  display: block;
+}
+
+.owl-carousel.owl-hidden {
+  opacity: 0;
+}
+
+.owl-carousel.owl-refresh .owl-item {
+  visibility: hidden;
+}
+
+.owl-carousel.owl-drag .owl-item {
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.owl-carousel.owl-grab {
+  cursor: move;
+  cursor: grab;
+}
+
+.owl-carousel.owl-rtl {
+  direction: rtl;
+}
+
+.owl-carousel.owl-rtl .owl-item {
+  float: right;
+}
+
+/* No Js */
+.no-js .owl-carousel {
+  display: block;
+}
+
+/*
+ *  Owl Carousel - Animate Plugin
+ */
+.owl-carousel .animated {
+  animation-duration: 1000ms;
+  animation-fill-mode: both;
+}
+
+.owl-carousel .owl-animated-in {
+  z-index: 0;
+}
+
+.owl-carousel .owl-animated-out {
+  z-index: 1;
+}
+
+.owl-carousel .fadeOut {
+  animation-name: fadeOut;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/*
+ * 	Owl Carousel - Auto Height Plugin
+ */
+.owl-height {
+  transition: height 500ms ease-in-out;
+}
+
+/*
+ * 	Owl Carousel - Lazy Load Plugin
+ */
+.owl-carousel .owl-item {
+  /**
+			This is introduced due to a bug in IE11 where lazy loading combined with autoheight plugin causes a wrong
+			calculation of the height of the owl-item that breaks page layouts
+		 */
+}
+
+.owl-carousel .owl-item .owl-lazy {
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+.owl-carousel .owl-item .owl-lazy[src^=""], .owl-carousel .owl-item .owl-lazy:not([src]) {
+  max-height: 0;
+}
+
+.owl-carousel .owl-item img.owl-lazy {
+  transform-style: preserve-3d;
+}
+
+/*
+ * 	Owl Carousel - Video Plugin
+ */
+.owl-carousel .owl-video-wrapper {
+  position: relative;
+  height: 100%;
+  background: #000;
+}
+
+.owl-carousel .owl-video-play-icon {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  left: 50%;
+  top: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
+  background: url("owl.video.play.png") no-repeat;
+  cursor: pointer;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  transition: transform 100ms ease;
+}
+
+.owl-carousel .owl-video-play-icon:hover {
+  transform: scale(1.3, 1.3);
+}
+
+.owl-carousel .owl-video-playing .owl-video-tn,
+.owl-carousel .owl-video-playing .owl-video-play-icon {
+  display: none;
+}
+
+.owl-carousel .owl-video-tn {
+  opacity: 0;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: opacity 400ms ease;
+}
+
+.owl-carousel .owl-video-frame {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+}
+
+.welight-container {
+  width: 100%;
+  margin-top: 20px !important;
+  margin-bottom: 30px !important;
+  /** COMPONENTS **/
+}
+
+.welight-container .hidden {
+  display: none !important;
+}
+
+.welight-container .ong-carousel {
+  display: flex;
+  justify-content: center;
+  width: 100% !important;
+}
+
+.welight-container .ong-carousel.style-simple-ong .owl-nav {
+  height: 100% !important;
+  pointer-events: none !important;
+  top: 0px !important;
+  margin-top: 0px !important;
+}
+
+.welight-container .ong-carousel.style-simple-ong .owl-nav > .owl-prev,
+.welight-container .ong-carousel.style-simple-ong .owl-nav > .owl-next {
+  pointer-events: auto !important;
+}
+
+.welight-container .ong-carousel.style-simple-ong .owl-nav > .owl-prev > span,
+.welight-container .ong-carousel.style-simple-ong .owl-nav > .owl-next > span {
+  color: #000 !important;
+  padding: 0 10px;
+}
+
+.welight-container .ong-carousel .ong {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  /** SIMPLE STYLE **/
+}
+
+.welight-container .ong-carousel .ong .overlayer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.welight-container .ong-carousel .ong > .ong-info {
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  transition: all 300ms ease-in-out;
+  transform: translateY(100%);
+  padding: 30px 15px 0px 15px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+
+.welight-container .ong-carousel .ong > .ong-info > p {
+  text-align: justify;
+  color: #fff !important;
+  font-weight: 500 !important;
+}
+
+.welight-container .ong-carousel .ong > .ong-info .close {
+  top: 0px;
+  right: 10px;
+  font-size: 24px;
+  color: #fff;
+  font-weight: lighter;
+  position: absolute !important;
+  cursor: pointer;
+}
+
+.welight-container .ong-carousel .ong > .ong-info.active {
+  transform: translateY(0);
+}
+
+.welight-container .ong-carousel .ong > .ong-logo {
+  -webkit-box-shadow: 0 0 8 rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 0 8 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 8 rgba(0, 0, 0, 0.4);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  z-index: 20;
+  margin: 80px 0px;
+  width: 120px;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-size: 70% auto;
+  background-position: center center;
+  background-color: #FFFFFF;
+}
+
+.welight-container .ong-carousel .ong > .checkbox {
+  align-self: flex-start;
+  z-index: 50;
+  position: absolute;
+  left: 7px;
+  top: 10px;
+}
+
+.welight-container .ong-carousel .ong > .more-link {
+  align-self: flex-end;
+  z-index: 50;
+  position: absolute;
+  right: 7px;
+  bottom: 5px;
+}
+
+.welight-container .ong-carousel .ong > .more-link > a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500 !important;
+}
+
+.welight-container .ong-carousel .ong.style-simple-ong {
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  background: #fff;
+  border: 3px solid rgba(148, 199, 65, 0.6);
+}
+
+.welight-container .ong-carousel .ong.style-simple-ong:hover {
+  border-color: #94c741;
+}
+
+.welight-container .ong-carousel .ong.style-simple-ong > .ong-logo {
+  width: 90px !important;
+  height: 90px !important;
+  margin: 15px 0px 5px 0px !important;
+}
+
+.welight-container .ong-carousel .ong.style-simple-ong > .checkbox {
+  position: relative !important;
+  top: inherit;
+  left: inherit;
+  align-self: center;
+  margin-bottom: 10px;
+}
+
+.welight-container .ong-carousel .ong.style-simple-ong > .checkbox label.checkbox {
+  border-color: #94c741;
+}
+
+.welight-container .ong-carousel .ong.style-simple-ong > .checkbox label.checkbox::before, .welight-container .ong-carousel .ong.style-simple-ong > .checkbox label.checkbox::after {
+  background-color: #94c741;
+}
+
+.welight-container .owl-carousel:hover .owl-nav {
+  opacity: 1 !important;
+}
+
+.welight-container .owl-nav {
+  -webkit-transition: opacity ease 0.4s;
+  -moz-transition: opacity ease 0.4s;
+  -o-transition: opacity ease 0.4s;
+  transition: opacity ease 0.4s;
+  opacity: 0 !important;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  margin-top: -29px;
+  width: 100%;
+  height: 58px;
+  display: inline-flex;
+  justify-content: space-between;
+  padding: 0px;
+  z-index: 15;
+  background: transparent;
+}
+
+.welight-container .owl-nav .owl-prev,
+.welight-container .owl-nav .owl-next {
+  align-self: center;
+}
+
+.welight-container .owl-nav .owl-prev > span,
+.welight-container .owl-nav .owl-next > span {
+  font-size: 36px;
+  color: #FFFFFF;
+  padding: 0 20px;
+  font-weight: 400 !important;
+}
+
+.welight-container .checkout-donation-amount {
+  display: block;
+  margin-bottom: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+.welight-container .checkout-donation-amount > p {
+  margin: 0px;
+  padding: 0px;
+  font-size: 15px;
+  color: #444;
+  font-weight: 400 !important;
+}
+
+.welight-container .checkout-donation-amount > p.donation-amount-text {
+  margin-top: 15px;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+@-moz-keyframes dothabottomcheck {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 10px;
+  }
+}
+
+@-webkit-keyframes dothabottomcheck {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 10px;
+  }
+}
+
+@keyframes dothabottomcheck {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 10px;
+  }
+}
+
+@keyframes dothatopcheck {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 0;
+  }
+  100% {
+    height: 24px;
+  }
+}
+
+@-webkit-keyframes dothatopcheck {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 0;
+  }
+  100% {
+    height: 24px;
+  }
+}
+
+@-moz-keyframes dothatopcheck {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 0;
+  }
+  100% {
+    height: 24px;
+  }
+}
+
+.welight-container div.welight-checkbox input[type=checkbox].welight {
+  display: none !important;
+}
+
+.welight-container div.welight-checkbox input[type=checkbox]:checked + label.checkbox, .welight-container div.welight-checkbox input[type=checkbox] label.checkbox.checked {
+  border-color: #FFF;
+}
+
+.welight-container div.welight-checkbox input[type=checkbox]:checked + label.checkbox::after, .welight-container div.welight-checkbox input[type=checkbox] label.checkbox.checked::after {
+  height: 10px;
+  -moz-animation: dothabottomcheck 0.2s ease 0s forwards;
+  -o-animation: dothabottomcheck 0.2s ease 0s forwards;
+  -webkit-animation: dothabottomcheck 0.2s ease 0s forwards;
+  animation: dothabottomcheck 0.2s ease 0s forwards;
+}
+
+.welight-container div.welight-checkbox input[type=checkbox]:checked + label.checkbox::before, .welight-container div.welight-checkbox input[type=checkbox] label.checkbox.checked::before {
+  height: 24px;
+  -moz-animation: dothatopcheck 0.4s ease 0s forwards;
+  -o-animation: dothatopcheck 0.4s ease 0s forwards;
+  -webkit-animation: dothatopcheck 0.4s ease 0s forwards;
+  animation: dothatopcheck 0.4s ease 0s forwards;
+}
+
+.welight-container div.welight-checkbox label.checkbox {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  width: 20px;
+  height: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: border-color ease 0.2s;
+  -moz-transition: border-color ease 0.2s;
+  -o-transition: border-color ease 0.2s;
+  transition: border-color ease 0.2s;
+  background-color: transparent;
+  border: 2px solid #FFF;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin: 0px;
+  padding: 0px;
+}
+
+.welight-container div.welight-checkbox label.checkbox::before, .welight-container div.welight-checkbox label.checkbox::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transform-origin: left top;
+  -moz-transform-origin: left top;
+  -o-transform-origin: left top;
+  transform-origin: left top;
+  -webkit-transition: opacity ease 0.5s;
+  -moz-transition: opacity ease 0.5s;
+  -o-transition: opacity ease 0.5s;
+  transition: opacity ease 0.5s;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  position: absolute;
+  height: 0;
+  width: 3px;
+  background-color: #FFF;
+  display: inline-block;
+  content: ' ';
+}
+
+.welight-container div.welight-checkbox label.checkbox::before {
+  top: 14.4px;
+  left: 8.2px;
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+.welight-container div.welight-checkbox label.checkbox::after {
+  top: 7.4px;
+  left: 1px;
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.tippy-ong {
+  padding-bottom: 7px;
+  font-weight: 400 !important;
+}
+
+.tippy-ong .tippy-ong-title {
+  margin-bottom: 8px !important;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold !important;
+}
+
+.woocommerce .cart_totals table tr.welight-donation-message td {
+  padding: 40px 0px;
+}
+
+.woocommerce .cart_totals table .checkout-donation-amount {
+  display: block;
+  width: 100%;
+}
+
+.woocommerce .cart_totals table .checkout-donation-amount > p {
+  margin-bottom: 15px;
+  padding: 0px 15px;
+  font-size: 15px;
+  color: #444;
+  font-weight: 400 !important;
+}
+
+.woocommerce .cart_totals table .checkout-donation-amount > p strong {
+  font-weight: bold !important;
+}
+
+.woocommerce .cart_totals table .checkout-donation-amount > p:last-child {
+  margin-bottom: 0px !important;
+}
+
+.woocommerce .cart_totals table .checkout-donation-amount > p.donation-amount-text {
+  margin-top: 7px;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+.welight-thankyou-container {
+  padding: 40px 0px;
+  margin: 40px 0px;
+  display: block;
+  width: 100%;
+  border-top: 2px solid #94c741;
+  border-bottom: 2px solid #94c741;
+  background-color: #fbfbfb;
+  border-radius: 10px;
+}
+
+.welight-thankyou-container .thankyou-title {
+  font-size: 28px;
+  font-weight: 400 !important;
+  text-align: center;
+  margin: 0px;
+}
+
+.welight-thankyou-container .thankyou-text {
+  text-align: center;
+  font-size: 26px;
+  font-weight: lighter;
+  margin-bottom: 10px;
+}
+
+.welight-thankyou-container p.welight-logo {
+  text-align: center !important;
+  width: 100%;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.welight-thankyou-container p.welight-logo > a.btn-welight {
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  margin-right: 30px;
+  padding: 10px 20px;
+  background: #94c741;
+  color: #FFFFFF;
+}
+
+.welight-thankyou-container p.welight-logo img {
+  margin: 0 auto !important;
+  padding: 0px;
+}

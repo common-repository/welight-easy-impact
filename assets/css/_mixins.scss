@@ -1,0 +1,48 @@
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+	@if $inset {
+		-webkit-box-shadow:inset $top $left $blur $color;
+		-moz-box-shadow:inset $top $left $blur $color;
+		box-shadow:inset $top $left $blur $color;
+	} @else {
+		-webkit-box-shadow: $top $left $blur $color;
+		-moz-box-shadow: $top $left $blur $color;
+		box-shadow: $top $left $blur $color;
+	}
+}
+
+@mixin border-radius($radius: 0.5em) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin blur($blur: 1px) {
+	-webkit-filter: blur($blur);
+	-moz-filter: blur($blur);
+	filter: blur($blur);
+}
+
+@mixin box-square($size: 10px) {
+	width: $size;
+	height: $size;
+}
+
+@mixin transition($transition-config) {
+	-webkit-transition: $transition-config;
+	-moz-transition: $transition-config;
+	-o-transition: $transition-config;
+	transition: $transition-config;
+}
+
+@mixin box-sizing($box-sizing-config) {
+	-webkit-box-sizing: $box-sizing-config;
+	-moz-box-sizing: $box-sizing-config;
+	box-sizing: $box-sizing-config;
+}
+
+@mixin transform-origin($transform-origin-config) {
+	-webkit-transform-origin: $transform-origin-config;
+	-moz-transform-origin: $transform-origin-config;
+	-o-transform-origin: $transform-origin-config;
+	transform-origin: $transform-origin-config;
+}

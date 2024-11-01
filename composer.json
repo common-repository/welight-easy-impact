@@ -1,0 +1,31 @@
+{
+  "name": "welight/welight-doador",
+  "type": "wordpress-plugin",
+  "homepage": "http://welight.co/",
+  "authors": [
+    {
+      "name": "Welight",
+      "email": "dev@welight.co"
+    }
+  ],
+  "require": {
+    "composer/installers": "~1.2"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "*",
+    "wp-coding-standards/wpcs": "*",
+    "higidi/composer-phpcodesniffer-standards-plugin": "*",
+    "dealerdirect/phpcodesniffer-composer-installer": "*"
+  },
+  "scripts": {
+    "phpcs": [
+      "phpcs -s -p --standard=WordPress"
+    ],
+    "phpcbf": [
+      "phpcbf -p --standard=WordPress"
+    ],
+    "install-codestandards": [
+      "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
+    ]
+  }
+}

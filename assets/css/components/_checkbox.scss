@@ -1,0 +1,115 @@
+// @import '../variables';
+// @import '../mixins';
+
+$checkbox-size: 20px;
+$checkbox-radius: 3px;
+$duration: .4s;
+
+
+@-moz-keyframes dothabottomcheck{
+	0% { height: 0; }
+	100% { height: $checkbox-size/2; }
+}
+
+@-webkit-keyframes dothabottomcheck{
+	0% { height: 0; }
+	100% { height: $checkbox-size/2; }
+}
+
+@keyframes dothabottomcheck{
+	0% { height: 0; }
+	100% { height: $checkbox-size/2;  }
+}
+
+@keyframes dothatopcheck{
+	0% { height: 0; }
+	50% { height: 0; }
+	100% { height: $checkbox-size * 1.2; }
+}
+@-webkit-keyframes dothatopcheck{
+	0% { height: 0; }
+	50% { height: 0; }
+	100% { height: $checkbox-size * 1.2; }
+}
+@-moz-keyframes dothatopcheck{
+	0% { height: 0; }
+	50% { height: 0; }
+	100% { height: $checkbox-size * 1.2; }
+}
+
+div.welight-checkbox {
+	input[type=checkbox] {
+		&.welight {
+			display: none !important;
+		}
+
+		&:checked + label.checkbox, label.checkbox.checked {
+			border-color: #FFF;
+
+			&::after{
+				height: $checkbox-size * .5;
+				-moz-animation: dothabottomcheck $duration/2 ease 0s forwards;
+				-o-animation: dothabottomcheck $duration/2 ease 0s forwards;
+				-webkit-animation: dothabottomcheck $duration/2 ease 0s forwards;
+				animation: dothabottomcheck $duration/2 ease 0s forwards;
+			}
+
+			&::before{
+				height: $checkbox-size * 1.2;
+				-moz-animation: dothatopcheck $duration ease 0s forwards;
+				-o-animation: dothatopcheck $duration ease 0s forwards;
+				-webkit-animation: dothatopcheck $duration ease 0s forwards;
+				animation: dothatopcheck $duration ease 0s forwards;
+			}
+		}
+	}
+
+	label.checkbox {
+		@include border-radius($checkbox-radius);
+		@include box-square($checkbox-size);
+		@include box-sizing(border-box);
+		@include transition(border-color ease $duration/2);
+
+		background-color: transparent;
+		border: $checkbox-size * .1 solid #FFF;
+		position: relative;
+		display: inline-block;
+		cursor:pointer;
+		margin: 0px;
+		padding: 0px;
+
+		&::before, &::after {
+			@include box-sizing(border-box);
+			@include transform-origin(left top);
+			@include transition(opacity ease .5s);
+			@include border-radius($checkbox-radius);
+
+			position: absolute;
+			height: 0;
+			width: $checkbox-size * .15;
+			background-color: #FFF;
+			display: inline-block;
+			content: ' ';
+		}
+
+		&::before {
+			top: $checkbox-size * .72;
+			left: $checkbox-size * .41;
+			-moz-transform: rotate(-135deg);
+			-ms-transform: rotate(-135deg);
+			-o-transform: rotate(-135deg);
+			-webkit-transform: rotate(-135deg);
+			transform: rotate(-135deg);
+		}
+
+		&::after {
+			top: $checkbox-size * .37;
+			left: $checkbox-size * .05;
+			-moz-transform: rotate(-45deg);
+			-ms-transform: rotate(-45deg);
+			-o-transform: rotate(-45deg);
+			-webkit-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+		}
+	}
+}
